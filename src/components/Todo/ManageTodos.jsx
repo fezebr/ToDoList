@@ -17,6 +17,7 @@ const ManageTodos = () => {
                          {todo.map(item =>(
                                <Todo 
                                titel = {item.titel}
+                               deleted = {() => context.deleted(item.id)}
                                />
                          ))}
 

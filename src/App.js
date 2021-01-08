@@ -5,16 +5,28 @@ import ManageTodos from './components/Todo/ManageTodos';
 import SimpleContext from './context/SimpleContext';
 
 function App() {
-  const [todo, SetTodo] = useState([
+  /////states
+  const [todo, setTodo] = useState([
     { titel: "programming", id: 21, EditeState: false, status: false },
     { titel: "walking", id: 61, EditeState: false, status: false },
     { titel: "reading", id: 31, EditeState: false, status: false },
 
   ])
+  ///// add delete edit done
+
+  const handelDeleteTask = (id) => {
+    const dupTodo = [...todo];/// duplicate todo state
+    const filterTodo = dupTodo.filter(item => item.id !== id); 
+    setTodo(filterTodo)
+
+  }
+
   return (
+
     <SimpleContext.Provider
     value = {{
       todo,
+      deleted:handelDeleteTask,
     }}
     >
       <Header />
@@ -22,7 +34,7 @@ function App() {
         <AddTodo />
         <ManageTodos />
       </main>
-    </SimpleContext.Provider>
+    </SimpleContext.Provider >
 
 
 
