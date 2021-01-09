@@ -2,9 +2,9 @@ import React from 'react'
 const Headers = () => {
      return ( 
           <header>
-          <div class="navbar navbar-dark bg-dark shadow-sm">
-              <div class="container d-flex justify-content-between">
-                  <a href="#" class="navbar-brand d-flex align-items-center">
+          <div className="navbar navbar-dark bg-dark shadow-sm">
+              <div className="container d-flex justify-content-between">
+                  <a href="#" className="navbar-brand d-flex align-items-center">
                   <strong>Todo App</strong>
                   </a>
               </div>
