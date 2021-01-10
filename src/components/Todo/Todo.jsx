@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Todo = ({ titel, deleted,handelEditeStatus,editeStatus}) => {
+const Todo = ({ titel, deleted,edited,editeStatus,changed}) => {
      let input = null
-     //  input = {editeStatus ? <input placeholder={titel}/> : null}
      if(editeStatus){
-          input = <input placeholder={titel} />
+          input = <input 
+          placeholder={titel}
+          onChange={changed}
+          />
      }
 
      return (
@@ -19,7 +21,7 @@ const Todo = ({ titel, deleted,handelEditeStatus,editeStatus}) => {
 
 
                     <div>
-                         <button type="button" className="btn btn-info btn-sm" onClick={handelEditeStatus}>edit</button>
+                         <button type="button" className="btn btn-info btn-sm" onClick={edited}>edit</button>
                          <button type="button" className="btn btn-success btn-sm ml-1">done</button>
                          <button type="button" className="btn btn-danger btn-sm ml-1" onClick={deleted}>delete</button>
 

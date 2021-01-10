@@ -20,7 +20,8 @@ const ManageTodos = () => {
                                    titel={item.titel}
                                    editeStatus={item.editeStatus}
                                    deleted={() => context.deleted(item.id)}
-                                   handelEditeStatus = {() =>context.handelEditeStatus(item.id)}
+                                   edited={() => context.edited(item.id)}
+                                   changed={(event) => context.changed(item.id,event)}
 
                               />
                          ))}

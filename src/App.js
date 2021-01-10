@@ -51,6 +51,15 @@ function App() {
     setTodo(dupTodo)
     console.log(todo)
   }
+////// change task
+  const handelChangeTask = (id, event) => {
+    const dupTodo = [...todo];/// duplicate todo state
+    const todoIndex = dupTodo.findIndex(item => item.id === id);
+    dupTodo[todoIndex].titel = event.target.value
+
+    setTodo(dupTodo)
+    console.log(todo)
+  }
   return (
 
     <SimpleContext.Provider
@@ -60,7 +69,8 @@ function App() {
         added: handelAddTask,
         addTask,
         task,
-        handelEditeStatus,
+        edited: handelEditeStatus,
+        changed:handelChangeTask,
       }}
     >
       <Header />
