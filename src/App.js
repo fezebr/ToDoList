@@ -9,10 +9,13 @@ function App() {
   const [todo, setTodo] = useState([
     { titel: "programming", id: 21, editeStatus: false, doneStatus: false },
     { titel: "walking", id: 61, editeStatus: false, doneStatus: false },
-    { titel: "reading", id: 31, editeStatus: false, doneStatus: false },
+    { titel: "reading", id: 31, editeStatus: false, doneStatus: true },
 
   ]);
   const [task, setTask] = useState("");
+  const [done, setDone] = useState(false);
+  console.log(done)
+
 
   ///// add delete edit done
   /////delete
@@ -28,8 +31,8 @@ function App() {
     const newtodo = {
       titel: task,
       id: Math.floor(Math.random() * 1000),
-      EditeState: false,
-      DoneStatus: false,
+      editeState: false,
+      doneStatus: false,
     }
     dupTodo.push(newtodo);
     setTodo(dupTodo);
@@ -60,6 +63,16 @@ function App() {
     setTodo(dupTodo)
     console.log(todo)
   }
+////done
+const handelDoneTask = (id) =>{
+  const dupTodo = [...todo];/// duplicate todo state
+  const todoIndex = dupTodo.findIndex(item => item.id === id);
+  dupTodo[todoIndex].doneStatus = true
+  setTodo(dupTodo)
+
+}
+/////
+
   return (
 
     <SimpleContext.Provider
@@ -71,6 +84,9 @@ function App() {
         task,
         edited: handelEditeStatus,
         changed:handelChangeTask,
+        done,setDone,
+        Done:handelDoneTask
+
       }}
     >
       <Header />
