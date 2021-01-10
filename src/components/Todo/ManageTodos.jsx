@@ -18,7 +18,9 @@ const ManageTodos = () => {
                               <Todo
                                    key={item.id}
                                    titel={item.titel}
+                                   editeStatus={item.editeStatus}
                                    deleted={() => context.deleted(item.id)}
+                                   handelEditeStatus = {() =>context.handelEditeStatus(item.id)}
 
                               />
                          ))}
