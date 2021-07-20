@@ -67,7 +67,7 @@ function App() {
 const handelDoneTask = (id) =>{
   const dupTodo = [...todo];/// duplicate todo state
   const todoIndex = dupTodo.findIndex(item => item.id === id);
-  dupTodo[todoIndex].doneStatus = true
+  dupTodo[todoIndex].doneStatus = !dupTodo[todoIndex].doneStatus
   setTodo(dupTodo)
 
 }
@@ -84,7 +84,8 @@ const handelDoneTask = (id) =>{
         task,
         edited: handelEditeStatus,
         changed:handelChangeTask,
-        done,setDone,
+        done,
+        setDone,
         Done:handelDoneTask
 
       }}

@@ -16,7 +16,7 @@ const ManageTodos = () => {
                                         onClick={() => setDone(false)}
                                    >
                                         undone
-                                          <span className="badge badge-secondary">
+                                        <span className="badge badge-secondary ml-1">
                                              {todo.filter(item => item.doneStatus == false).length}
                                         </span>
                                    </a>
@@ -25,16 +25,18 @@ const ManageTodos = () => {
                                         onClick={() => setDone(true)}
                                    >
                                         done
-                                         <span className="badge badge-success">
+                                        <span className="badge badge-success ml-1">
                                              {todo.filter(item => item.doneStatus == true).length}
 
                                         </span></a>
                               </div>
                          </nav>
+
                          {filterTodo.map(item => (
                               <Todo
                                    key={item.id}
                                    titel={item.titel}
+                                   doneStatus={item.doneStatus}
                                    editeStatus={item.editeStatus}
                                    deleted={() => context.deleted(item.id)}
                                    edited={() => context.edited(item.id)}

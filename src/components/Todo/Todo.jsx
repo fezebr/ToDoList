@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Todo = ({ titel, deleted,edited,editeStatus,changed,Done}) => {
+const Todo = ({ titel, deleted,edited,editeStatus,changed,Done,doneStatus}) => {
      let input = null
      if(editeStatus){
           input = <input 
@@ -16,13 +16,14 @@ const Todo = ({ titel, deleted,edited,editeStatus,changed,Done}) => {
                          {titel}
                          {/* <input placeholder={titel} /> */}
                          {input}
+                         
 
                     </div>
 
 
                     <div>
                          <button type="button" className="btn btn-info btn-sm" onClick={edited}>edit</button>
-                         <button type="button" className="btn btn-success btn-sm ml-1"onClick ={Done}>done</button>
+                         <button type="button" className="btn btn-success btn-sm ml-1"onClick ={Done}>{doneStatus ? "undone": "done"}</button>
                          <button type="button" className="btn btn-danger btn-sm ml-1" onClick={deleted}>delete</button>
 
                     </div>
